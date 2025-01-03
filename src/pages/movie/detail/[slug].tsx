@@ -6,14 +6,22 @@ import imgPlaceHolder from '../../../../public/img/img-placeholder.png';
 
 
 
-const getImagePoster = ({image}:{image:string | null}) => {
-  let URL = 'https://image.tmdb.org/t/p/w342'
-  if (image && image.trim()) {
-    return `${URL}${image}`;
-  } else {
-    return imgPlaceHolder.src;
-  }
-}
+// const getImagePoster = ({image}:{image:string | null}) => {
+//   let URL = 'https://image.tmdb.org/t/p/w342'
+//   if (image && image.trim()) {
+//     return `${URL}${image}`;
+//   } else {
+//     return imgPlaceHolder.src;
+//   }
+// }
+type Movie = {
+  title: string;
+  overview: string;
+  release_date: string;
+  poster_path: string;
+  popularity: number;
+  genres: { name: string }[]; // Assuming genres is an array of objects with a 'name' property
+};
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   // const Router = useRouter();
@@ -50,7 +58,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     return { notFound: true }
   }
 }
-export default function MovieDetailPage(props: { movie: any }) {
+export default function MovieDetailPage(props: { movie: Movie }) {
   const { movie } = props
   return (
     <div>

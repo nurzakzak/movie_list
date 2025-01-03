@@ -1,4 +1,4 @@
-import AppShell from '@/components/layouts/AppShell'; 
+// import AppShell from '@/components/layouts/AppShell'; 
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 

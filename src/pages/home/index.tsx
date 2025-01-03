@@ -26,7 +26,7 @@ const App = () => {
     { "id": 10752, "name": "War" },
     { "id": 37, "name": "Western" }
   ];
-  let years = [];
+  const years = [];
   const thisYear = new Date().getFullYear();
   for (let i = 0; i < 10; i++) {
     years.push(thisYear - i);
@@ -38,18 +38,19 @@ const App = () => {
   const [genreName, setGenreName] = useState('All');
   const [page, setPage] = useState(1);
 
-  const handleYearChange = (event:any) => {
-    setYear(event.target.value);
+  const handleYearChange = (event:React.ChangeEvent<HTMLInputElement>) => {
+    setYear(+event.target.value);
     // reset page
     setPage(1);
   }
 
-  const handleGenreChange = (event:any) => {
+  const handleGenreChange = (event:React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedOption = event.target.options[event.target.selectedIndex];
     setGenreId(event.target.value);
-    let index = event.target.selectedIndex;
-    setGenreName(event.target[index].text);
+    setGenreName(selectedOption.text);
     setPage(1);
   }
+
 
   const handleLoadMoreClick = () => {
     setPage(prevPage => prevPage + 1);
@@ -75,12 +76,12 @@ const App = () => {
           url += `&with_genres=${genreId}`;
           url += `&page=${page}`;
 
-          let response = await fetch(
+          const response = await fetch(
             url, options);
           if (!response.ok) {
             throw new Error('Terjadi gangguan dengan kode: ' + response.status)
           }
-          let data = await response.json();
+          const data = await response.json();
           // jika halaman 1, isiulang state
           // jika 2 atau lebih, tambahkan ke dalam state movie
           if (page === 1) {

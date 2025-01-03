@@ -1,8 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import Footer from '../../components/Footer';
-import Header from '../../components/Footer';
-import Movie from '../../components/Footer';
+import Header from '../../components/Header';
+import Movie from '../../components/Movie';
 
+
+type MovieType = {
+  id: number;
+  title: string;
+  overview: string;
+  release_date: string;
+  poster_path: string;
+  popularity: number;
+  genres: { name: string }[];
+};
 const App = () => {
   const genres = [
     { "id": "", "name": "All" },
@@ -32,13 +42,13 @@ const App = () => {
     years.push(thisYear - i);
   }
 
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState<MovieType[]>([]);
   const [year, setYear] = useState(thisYear);
   const [genreId, setGenreId] = useState('');
   const [genreName, setGenreName] = useState('All');
   const [page, setPage] = useState(1);
 
-  const handleYearChange = (event:React.ChangeEvent<HTMLInputElement>) => {
+  const handleYearChange = (event:React.ChangeEvent<HTMLSelectElement>) => {
     setYear(+event.target.value);
     // reset page
     setPage(1);

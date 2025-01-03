@@ -2,7 +2,7 @@
 // import { useEffect, useState } from "react";
 import MovieDetail from '@/components/detail/MovieDetail';
 import { GetServerSideProps } from "next";
-import imgPlaceHolder from '../../../../public/img/img-placeholder.png';
+// import imgPlaceHolder from '../../../../public/img/img-placeholder.png';
 
 
 

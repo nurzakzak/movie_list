@@ -57,8 +57,7 @@ export default function App() {
 
   useEffect(
     () => {
-      // const Token = process.env.MOVIE_DB_API_KEY
-      const Token = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxNzIwOWI1MDA4YTk3ODAxM2IyNGMzZTdkMGEyNjkzNiIsIm5iZiI6MTczMzk5NzkxMS43NTgwMDAxLCJzdWIiOiI2NzVhYjU1N2M3ZDNmMmY5M2UxMmVlZjciLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.WxkW9BNMarQSYtCDckbZLnh2DE5a-xTtCqWgX7a4zgE'
+      const Token = process.env.NEXT_PUBLIC_MOVIE_DB_API_KEY
       const options = {
         method: 'GET',
         headers: {

@@ -57,7 +57,7 @@ export default function App() {
 
   useEffect(
     () => {
-      const Token = process.env.NEXT_PUBLIC_MOVIE_DB_API_KEY
+      const Token = process.env.MOVIE_DB_API_KEY
       const options = {
         method: 'GET',
         headers: {

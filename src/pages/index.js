@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Movie from '../components/Movie';
-
+console.log('pages/index.js')
 export default function App() {
   const genres = [
     { "id": "", "name": "All" },
@@ -57,7 +57,7 @@ export default function App() {
 
   useEffect(
     () => {
-      const Token = process.env.MOVIE_DB_API_KEY
+      const Token = process.env.NEXT_PUBLIC_MOVIE_DB_API_KEY
       const options = {
         method: 'GET',
         headers: {

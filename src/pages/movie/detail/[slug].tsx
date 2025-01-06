@@ -29,7 +29,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   console.log('data' + slug)
   // Fetch data from external API
   try {
-    const Token = process.env.MOVIE_DB_API_KEY
+    const Token = process.env.NEXT_PUBLIC_MOVIE_DB_API_KEY
     const options = {
       method: 'GET',
       headers: {
